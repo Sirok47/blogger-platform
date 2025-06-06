@@ -13,9 +13,10 @@ app.get('/', (req: Request, res: Response) => {
     res.send('Ya zhivoi!!')
 })
 
-app.delete('testing/all-data',(req: Request, res: Response)=>{
+app.delete('/testing/all-data',(req: Request, res: Response)=>{
     blogsRepository.deleteAll()
     postsRepository.deleteAll()
+    res.sendStatus(204)
 })
 
 app.use('/blogs',blog_router)
