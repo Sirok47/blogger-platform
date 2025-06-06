@@ -59,5 +59,7 @@ export const validationResultMiddleware = function (req: Request, res: Response,
     if (errors.length === 0) {
         next();
     }
-    res.status(400).send(errors);
+    // @ts-ignore
+    const errObj: APIErrorResult = {errorsMessages:errors}
+    res.status(400).send(errObj);
 }
